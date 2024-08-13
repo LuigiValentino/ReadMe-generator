@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>README Generator 1.0</title>
+    <style>
+        body { display: flex; height: 100vh; margin: 0; font-family: Arial, sans-serif; }
+        #sidebar { width: 20%; background: #f4f4f4; padding: 10px; overflow-y: auto; }
+        #editor-container { width: 80%; display: flex; flex-direction: column; }
+        #editor { flex: 1; height: 100%; }
+        .section { cursor: pointer; padding: 8px; border: 1px solid #ddd; margin-bottom: 5px; background: #fff; }
+        button { margin: 10px 0; padding: 10px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+        h1 { margin: 0 0 20px 0; text-align: center; color: #333; }
+    </style>
+</head>
+<body>
+
+<div id="sidebar">
+    <h1>README Generator 1.0</h1>
+    <div class="section" onclick="addSection('Título del Proyecto', '# Título del Proyecto\n\n## Descripción\n\nUna breve descripción del proyecto con su propósito y contexto.')">Título</div>
+    <div class="section" onclick="addSection('Tabla de Contenidos', '## Tabla de Contenidos\n\n1. [Instalación](#instalación)\n2. [Uso](#uso)\n3. [Contribuyendo](#contribuyendo)\n4. [Pruebas](#pruebas)\n5. [Despliegue](#despliegue)\n6. [Roadmap](#roadmap)\n7. [Registro de Cambios](#registro-de-cambios)\n8. [Licencia](#licencia)\n9. [Créditos](#créditos)\n10. [Contactos](#contactos)\n11. [Reconocimientos](#reconocimientos)\n12. [FAQ](#faq)\n13. [Soporte](#soporte)\n14. [Notas de la Versión](#notas-de-la-versión)\n15. [Estado del Proyecto](#estado-del-proyecto)\n16. [Imágenes](#imagenes)')">Tabla de Contenidos</div>
+    <div class="section" onclick="addSection('Instalación', '## Instalación\n\n### Requisitos previos\n\n- Lista de dependencias o herramientas necesarias\n\n### Pasos de Instalación\n\n1. Paso 1\n2. Paso 2\n3. Paso 3\n')">Instalación</div>
+    <div class="section" onclick="addSection('Uso', '## Uso\n\n### Ejemplo Básico\n\n```bash\n# Comando de ejemplo\n```\n\n### Ejemplos Avanzados\n\n```bash\n# Otro ejemplo más complejo\n```')">Uso</div>
+    <div class="section" onclick="addSection('Contribuyendo', '## Contribuyendo\n\n### Guía de Contribución\n\n1. Realiza un fork del repositorio\n2. Crea una nueva rama (`git checkout -b feature/nueva-caracteristica`)\n3. Realiza los cambios necesarios y realiza commits frecuentemente\n4. Abre un pull request con tus cambios\n\n### Código de Conducta\n\nRecuerda seguir el código de conducta para mantener un ambiente inclusivo.')">Contribuyendo</div>
+    <div class="section" onclick="addSection('Pruebas', '## Pruebas\n\n### Cómo ejecutar pruebas locales\n\n1. Ejecuta `npm test`\n2. Revisa los resultados y logs para asegurar que todo funciona como se espera\n')">Pruebas</div>
+    <div class="section" onclick="addSection('Despliegue', '## Despliegue\n\n### Pasos para el despliegue\n\n1. Prepara el entorno de producción\n2. Configura las variables de entorno\n3. Despliega el proyecto con `npm run deploy`\n\n### Consideraciones adicionales\n\n- Incluir detalles sobre cómo manejar actualizaciones y rollback')">Despliegue</div>
+    <div class="section" onclick="addSection('Roadmap', '## Roadmap\n\n### Funcionalidades Planeadas\n\n- Lista de próximas características y mejoras\n- Indicar fechas estimadas si es posible\n')">Roadmap</div>
+    <div class="section" onclick="addSection('Registro de Cambios', '## Registro de Cambios\n\n### Versión 1.0\n\n- Primera versión pública del proyecto\n\n### Versión 1.1\n\n- Mejoras de rendimiento\n- Corrección de bugs menores\n')">Registro de Cambios</div>
+    <div class="section" onclick="addSection('Licencia', '## Licencia\n\nEste proyecto está licenciado bajo la Licencia MIT. Para más detalles, consulta el archivo [LICENSE](./LICENSE).\n')">Licencia</div>
+    <div class="section" onclick="addSection('Créditos', '## Créditos\n\n### Colaboradores\n\n- Nombre 1 - `@usuario1`\n- Nombre 2 - `@usuario2`\n\n### Recursos\n\n- [Recurso 1](https://ejemplo.com)\n- [Recurso 2](https://ejemplo.com)\n')">Créditos</div>
+    <div class="section" onclick="addSection('Contactos', '## Contactos\n\n### Información de contacto\n\n- Email: contacto@ejemplo.com\n- Twitter: [@ejemplo](https://twitter.com/ejemplo)\n- LinkedIn: [Ejemplo](https://linkedin.com/in/ejemplo)\n')">Contactos</div>
+    <div class="section" onclick="addSection('Reconocimientos', '## Reconocimientos\n\n- Agradecimientos a los autores y recursos que ayudaron a desarrollar este proyecto.')">Reconocimientos</div>
+    <div class="section" onclick="addSection('FAQ', '## Preguntas Frecuentes\n\n### Pregunta 1\n\nRespuesta a la pregunta 1.\n\n### Pregunta 2\n\nRespuesta a la pregunta 2.\n')">Preguntas Frecuentes</div>
+    <div class="section" onclick="addSection('Soporte', '## Soporte\n\nSi tienes alguna pregunta o problema, por favor abre un [issue](https://github.com/usuario/proyecto/issues) en GitHub o contacta al equipo de soporte.')">Soporte</div>
+    <div class="section" onclick="addSection('Notas de la Versión', '## Notas de la Versión\n\n- Detalles sobre cada versión del proyecto, con fecha de lanzamiento y cambios significativos.')">Notas de la Versión</div>
+    <div class="section" onclick="addSection('Estado del Proyecto', '## Estado del Proyecto\n\nEste proyecto está actualmente en desarrollo activo y se planean nuevas funcionalidades para futuras versiones.')">Estado del Proyecto</div>
+    <div class="section" onclick="addSection('Imágenes', '## Imágenes\n\n### Ejemplo de imagen\n\n![Texto Alternativo](https://ejemplo.com/imagen.png)\n\n### Galería de imágenes\n\n![Imagen 1](https://ejemplo.com/imagen1.png) ![Imagen 2](https://ejemplo.com/imagen2.png) ![Imagen 3](https://ejemplo.com/imagen3.png)\n')">Imágenes</div>
+    <div class="section" onclick="addSection('Separador', '---\n')">Separador</div>
+    <button onclick="downloadReadme()">Descargar README.md</button>
+</div>
+
+<div id="editor-container">
+    <div id="editor"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor/min/vs/loader.js"></script>
+
+<script>
+    require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor/min/vs' }});
+    require(['vs/editor/editor.main'], function () {
+        const editor = monaco.editor.create(document.getElementById('editor'), {
+            value: '',
+            language: 'markdown',
+            theme: 'vs-dark',
+            automaticLayout: true,
+        });
+
+        window.addSection = function(title, content) {
+            const currentValue = editor.getValue();
+            editor.setValue(currentValue + '\n' + content);
+        };
+
+        window.downloadReadme = function() {
+            const content = editor.getValue();
+            const blob = new Blob([content], { type: 'text/markdown' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'README.md';
+            a.click();
+            URL.revokeObjectURL(url);
+        };
+    });
+</script>
+
+</body>
+</html>
